@@ -40,6 +40,8 @@ def get_openai_response():
     except Exception as e:
         # Handle exceptions and return an error response
         return jsonify({"error": str(e)}), 500
-
+@sql_app.route('/')
+def hello():
+    return 'is working'
 if __name__ == '__main__':
     sql_app.run(debug=True)
