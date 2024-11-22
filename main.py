@@ -44,4 +44,4 @@ def get_openai_response():
 def hello():
     return 'is working'
 if __name__ == '__main__':
-    sql_app.run(debug=True)
+    sql_app.run()
