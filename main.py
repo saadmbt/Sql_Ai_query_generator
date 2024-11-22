@@ -12,9 +12,9 @@ client = Groq(
     api_key=os.environ.get("GROQ_API_KEY"),  
 )
 # Initialize Flask application
-sql_app=Flask(__name__)
-CORS(sql_app)
-@sql_app.route('/Generate_sql_query', methods=['POST'])
+app=Flask(__name__)
+CORS(app)
+@app.route('/Generate_sql_query', methods=['POST'])
 def get_openai_response():
     # Get the input text from the request body
     data= request.json
@@ -40,8 +40,8 @@ def get_openai_response():
     except Exception as e:
         # Handle exceptions and return an error response
         return jsonify({"error": str(e)}), 500
-@sql_app.route('/')
+@app.route('/')
 def hello():
     return 'is working'
 if __name__ == '__main__':
-    sql_app.run()
+    app.run()
